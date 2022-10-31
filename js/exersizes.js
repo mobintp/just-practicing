@@ -1,13 +1,13 @@
 function cartTotal(cartArray) {
-    let total = 0;
+  let total = 0;
 
-    cartArray.forEach(function (item){
-        total = total + item.price * item.quantity;
-    });
+  cartArray.forEach(function (item) {
+    total = total + item.price * item.quantity;
+  });
 
-    console.log(total);
+  console.log(total);
 }
 cartTotal([
-  { name: "Apple", price: 4, quantity: 2 },
-  { name: "Orange", price: 3, quantity: 3 },
+  { name: 'Apple', price: 4, quantity: 2 },
+  { name: 'Orange', price: 3, quantity: 3 }
 ]);
