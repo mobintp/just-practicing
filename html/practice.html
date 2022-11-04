@@ -4,36 +4,45 @@
   </head>
   <body>
     <input id="todo-title" type="text" />
-    <input type="date" name="" id="date-picker">
+    <input id="date-picker" type="date" />
     <button onclick="addTodo()">Add Todo</button>
 
     <div id="todo-list"></div>
 
     <script>
-      const todos = [{
-        title: 'Get groceries',
-        dueDate: '2021-10-04'
-      }, {
-        title: 'Wash car',
-        dueDate: '2021-02-03'
-      }, {
-        title: 'Make dinner',
-        dueDate: '2021-03-04'
-      }];
+      const todos = [
+        {
+          title: "Get groceries",
+          dueDate: "2021-10-04",
+        },
+        {
+          title: "Wash car",
+          dueDate: "2021-02-03",
+        },
+        {
+          title: "Make dinner",
+          dueDate: "2021-03-04",
+        },
+      ];
 
       render();
 
       function addTodo() {
         const textbox = document.getElementById("todo-title");
         const title = textbox.value;
-        const datePicker = document.getElementById('date-picker');
+
+        const datePicker = document.getElementById("date-picker");
         const dueDate = datePicker.value;
         todos.push({
           title: title,
-          dueDate: dueDate
+          dueDate: dueDate,
         });
 
         render();
+      }
+
+      function deleteTodo() {
+
       }
 
       function render() {
@@ -42,7 +51,13 @@
 
         todos.forEach(function (todo) {
           const element = document.createElement("div");
-          element.innerText = todo.title + ' ' + todo.dueDate;
+          element.innerText = todo.title + " " + todo.dueDate;
+
+          const deleteButton = document.createElement('button');
+          deleteButton.innerText = 'Delete';
+          deleteButton.style = 'margin-left: 12px';
+          deleteButton.onclick = deleteTodo; 
+          element.appendChild(deleteButton);
           const todoList = document.getElementById("todo-list");
           todoList.appendChild(element);
         });
@@ -50,3 +65,4 @@
     </script>
   </body>
 </html>
+___
